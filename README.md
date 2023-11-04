@@ -1,9 +1,9 @@
-# Code for KTC2023 EIT challenge (End-to-end approach)
+# Code for KTC2023 EIT challenge (end-to-end)
 
 
 ## Brief description of the algorithm
 This repository contains the Python files required by the organisers of the EIT Kuopio challenge 2023 which implements an end-to-end approach.
-Training was performed with GT simulated data with random polygons of different shapes and postive/negative contrast.
+Training was performed using GT simulated data with random polygons of different shapes, size and postive/negative contrast. The end-to-end procedure includes a step where a pseudo-inverse operator is also learned. For each simulated inclusion the corresponding segmentation is matched with the one computed directly on the GT data.
 
 ## Authors:
 - Tatiana Bubba, University of Bath, UK, tab73 AT bath.ac.uk
@@ -24,3 +24,9 @@ You can create the enviroment using the following command:
 We created a script main.py to reconstruct the inclusions provided for training from voltage measurements:
 
 ```python main.py /path_to_input_folder /path_to_ouput_folder difficulty_level```
+
+The same architecture was employed for all levels of difficulties. Training was repeated to better adapt to each level of difficulty. For each level of difficulty, the learned parameters of the network are available in at the path
+
+```/models/difficulty_{j}_learnedlinear.pth.tar ```
+
+and uploaded directly via the call to the main file once the difficulty level is specified.

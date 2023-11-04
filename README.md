@@ -30,3 +30,14 @@ The same architecture was employed for all levels of difficulties. Training was 
 ```/models/difficulty_{j}_learnedlinear.pth.tar ```
 
 and uploaded directly via the call to the main file once the difficulty level is specified.
+
+To install the latest stable release of deepinv, you can simply do:
+
+```pip install deepinv```
+You can also install the latest version of deepinv directly from github:
+
+``` pip install git+https://github.com/deepinv/deepinv.git#egg=deepinv``` 
+
+## References
+
+* Samuel Hurault, Mathieu Terris, Julian Tachella, DeepInverse: a Pytorch library for imaging with deep learning, https://deepinv.github.io.

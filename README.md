@@ -34,6 +34,7 @@ and uploaded directly via the call to the main file once the difficulty level is
 To install the latest stable release of deepinv, you can simply do:
 
 ```pip install deepinv```
+
 You can also install the latest version of deepinv directly from github:
 
 ``` pip install git+https://github.com/deepinv/deepinv.git#egg=deepinv``` 

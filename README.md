@@ -6,13 +6,13 @@ This repository contains the Python files required by the organisers of the EIT 
 Training was performed with GT simulated data with random polygons of different shapes and postive/negative contrast.
 
 ## Authors:
-- Tatiana Bubba, University of Bath, UK, tab73@bath.ac.uk
-- Luca Calatroni, CNRS, FR, calatroni@i3s.unice.fr
-- Damiana Lazzaro, University of Bologna, IT, damiana.lazzaro@unibo.it 
-- Serena Morigi, University of Bologna, IT, serena.morigi@unibo.it 
-- Luca Ratti, University of Bologna, IT, luca.ratti5@unibo.it
-- Matteo Santacesaria, University of Genoa, IT, matteo.Santacesaria@unige.it 
-- Julian Tachella, CNRS, FR, julian.tachella@ens-lyon.fr
+- Tatiana Bubba, University of Bath, UK, tab73 AT bath.ac.uk
+- Luca Calatroni, CNRS, FR, calatroni AT i3s.unice.fr
+- Damiana Lazzaro, University of Bologna, IT, damiana.lazzaro AT unibo.it 
+- Serena Morigi, University of Bologna, IT, serena.morigi AT unibo.it 
+- Luca Ratti, University of Bologna, IT, luca.ratti5 AT unibo.it
+- Matteo Santacesaria, University of Genoa, IT, matteo.santacesaria AT unige.it 
+- Julian Tachella, CNRS, FR, julian.tachella AT ens-lyon.fr
 
 ## Installation instructions and requirements
 

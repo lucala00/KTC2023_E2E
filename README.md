@@ -13,7 +13,7 @@ Training was performed using GT simulated data with random polygons of different
 - horseshoe shapes of different sides and orientations
 - star-like shapes with 3-4-5 tips with different centres and orientations
 For rectangles, squares, circles and star-like shapes we further allowed the possibility of having holes of different size.
-All shapes were assigned to a random negative/positive value within fixed ranges to simulate resistive/conductive inclusions. We allowed a number of inclusions shaped as above equal to 1, 2, 3, making sure that all shapes do not intersect and are note placed too close to the boundary.
+All shapes were assigned to a random negative/positive value within fixed ranges to simulate resistive/conductive inclusions. We allowed a number of inclusions shaped as above equal to 1, 2, 3, making sure that all shapes do not intersect and are not placed too close to the boundary.
 
 Here are some simulated inclusions (different shapes, size, number, position):
 ![Fig2](https://github.com/lucala00/KTC2023_E2E/assets/49308207/7143a902-d650-4c2e-bfe6-da21a19a9550)
@@ -21,10 +21,10 @@ Here are some simulated inclusions (different shapes, size, number, position):
 ![Figure_3](https://github.com/lucala00/KTC2023_E2E/assets/49308207/1960ec95-f80b-4b35-b3a7-6d8e7ed69e1c)
 ![fig1](https://github.com/lucala00/KTC2023_E2E/assets/49308207/c034634f-363c-4c60-99fc-a8aa7ae59a43)
 
-For each inclusion, the correspodning GT labelling was considering by assigning to the class 0 the background elements, to the class 1 the resistive inclusions and to che class 2 the conductive inclusions.
+For each inclusion, the corresponding GT labeling was considered by assigning to class 0 the background elements, to class 1 the resistive inclusions and to class 2 the conductive inclusions.
 Using the forward EIT model provided, for each element of the training data a corresponding measurement vector of difficulty from 1 to 7 is created.
 
-The end-to-end procedure takes as input those measurement vectors and maps them directly into a segmented image with associated labels 0, 1, 2. It includes a step where a pseudo-inverse operator is also learned.  For all measurement vectors, the network is trained so as to match minimise the cross entropy loss between the labelling of the reconstructed image with the GT labelled data defined above.
+The end-to-end procedure takes as input those measurement vectors and maps them directly into a segmented image with associated labels 0, 1, 2. It is based on a convolutional UNet architecture with 4 scales, where the first (learnable) linear layer maps the measurements to image space. This first linear layer is initialized using a Tikhonov reconstruction with regularization parameter 0.001.  For all measurement vectors, the network is trained so as to match minimise the cross entropy loss between the labeling of the reconstructed image with the GT labeled data defined above.
 
 ## Authors:
 - Tatiana Bubba, University of Bath, UK, tab73 AT bath.ac.uk

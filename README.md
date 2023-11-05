@@ -1,9 +1,30 @@
 # Code for KTC2023 EIT challenge (end-to-end)
 
 
-## Brief description of the algorithm
+## Brief description of the method
 This repository contains the Python files required by the organisers of the EIT Kuopio challenge 2023 which implements an end-to-end approach.
-Training was performed using GT simulated data with random polygons of different shapes, size and postive/negative contrast. The end-to-end procedure includes a step where a pseudo-inverse operator is also learned. For each simulated inclusion the corresponding segmentation is matched with the one computed directly on the GT data.
+
+Training was performed using GT simulated data with random polygons of different shapes, size and postive/negative contrast. In more detail, we created synthetic shapes of:
+- rectangles with sides of different length and with different orientation within the domain
+- squares with side of different length and with different orientation within the domain
+- generic triangles with sides of different lenghts
+- generic quadrilaterals with sides of different lengthts
+- circles of different radii and centres
+- horseshoe shapes of different sides and orientations
+- star-like shapes with 3-4-5 tips with different centres and orientations
+For rectangles, squares, circles and star-like shapes we further allowed the possibility of having holes of different size.
+All shapes were assigned to a random negative/positive value within fixed ranges to simulate resistive/conductive inclusions. We allowed a number of inclusions shaped as above equal to 1, 2, 3, making sure that all shapes do not intersect and are note placed too close to the boundary.
+
+Here are some simulated inclusions (different shapes, size, number, position):
+![Fig2](https://github.com/lucala00/KTC2023_E2E/assets/49308207/7143a902-d650-4c2e-bfe6-da21a19a9550)
+![fig5](https://github.com/lucala00/KTC2023_E2E/assets/49308207/ef9111ad-8e03-46dc-83ca-2f548cebebb3)
+![Figure_3](https://github.com/lucala00/KTC2023_E2E/assets/49308207/1960ec95-f80b-4b35-b3a7-6d8e7ed69e1c)
+![fig1](https://github.com/lucala00/KTC2023_E2E/assets/49308207/c034634f-363c-4c60-99fc-a8aa7ae59a43)
+
+For each inclusion, the correspodning GT labelling was considering by assigning to the class 0 the background elements, to the class 1 the resistive inclusions and to che class 2 the conductive inclusions.
+Using the forward EIT model provided, for each element of the training data a corresponding measurement vector of difficulty from 1 to 7 is created.
+
+The end-to-end procedure takes as input those measurement vectors and maps them directly into a segmented image with associated labels 0, 1, 2. It includes a step where a pseudo-inverse operator is also learned.  For all measurement vectors, the network is trained so as to match minimise the cross entropy loss between the labelling of the reconstructed image with the GT labelled data defined above.
 
 ## Authors:
 - Tatiana Bubba, University of Bath, UK, tab73 AT bath.ac.uk
@@ -39,6 +60,17 @@ You can also install the latest version of deepinv directly from github:
 
 ``` pip install git+https://github.com/deepinv/deepinv.git#egg=deepinv``` 
 
+## Examples
+
+For the training data provided, we tested the approach for all level of difficulties comparing the reconstruction with the ground truth images provided. Here below the results we obtained.
+
+![e2e](https://github.com/lucala00/KTC2023_E2E/assets/49308207/089da0f9-0e6d-45ea-9bcc-6aea5ca01884)
+
+
+The ```data4``` appeared to be particularly challenging, we believe due to the low values of the measurement and the central position of the inclusion which, generally, corresponds to a more challenging problem.
+
+
 ## References
 
 * Samuel Hurault, Mathieu Terris, Julian Tachella, DeepInverse: a Pytorch library for imaging with deep learning, https://deepinv.github.io.
+

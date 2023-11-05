@@ -37,10 +37,9 @@ The end-to-end procedure takes as input those measurement vectors and maps them 
 
 ## Installation instructions and requirements
 
-For installation and required environment see the environment_pnp.yml to restore the conda enviroment used for the submission. 
-You can create the enviroment using the following command:
+Please use the following command to install the required packages
 
-```conda env create -f environment.yml```
+```pip install -r requirements.txt```
 
 We created a script main.py to reconstruct the inclusions provided for training from voltage measurements:
 
